@@ -17,7 +17,7 @@ Track and analyze GitHub pull request contributions across your organization. Si
 
 ## Installation
 
-![Setup](https://media.giphy.com/media/LMt9638dO8dftAjtco/giphy.gif)
+![Setup](https://media.giphy.com/media/Y4ak9Ki2GZCbJxAnJD/giphy.gif)
 
 1. Clone the repository:
    ```
