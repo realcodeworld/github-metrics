@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "github-metrics"
+version = "0.1.0"
+description = "GitHub Contribution Metrics - Analyze PR contributions in organizations"
+requires-python = ">=3.7"
+dependencies = [
+    "requests>=2.31.0",
+    "typer>=0.9.0",
+    "rich>=13.7.0",
+]
+
+[project.scripts]
+github-metrics = "src.cli:main" 

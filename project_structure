@@ -1,0 +1,6 @@
+src/
+├── __init__.py
+├── client.py        # GitHub API client
+├── models.py        # Data models/types
+├── metrics.py       # Metrics calculation logic
+└── cli.py          # Command line interface 
