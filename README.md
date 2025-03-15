@@ -38,14 +38,14 @@ Track and analyze GitHub pull request contributions across your organization. Si
      export GITHUB_TOKEN=your_token_here
      ```
 
-## Usage
+## Commands
 
 ### List Organization Members
-
-View all members in an organization:
 ```
 python -m src.cli list-users -o organization
 ```
+
+Lists all members in an organization with their GitHub profile URLs and account types.
 
 Example output:
 ```
@@ -61,17 +61,16 @@ Example output:
 Total members: 3
 ```
 
-### Compare Developers
-
-Compare specific developers:
+### Analyze Contributions
 ```
+# Compare specific developers
 python -m src.cli analyze -u dev1 -u dev2 -o organization
-```
 
-Analyze last 14 days:
-```
+# Analyze last 14 days
 python -m src.cli analyze -u dev1 -u dev2 -o organization -d 14
 ```
+
+Shows detailed contribution metrics for specified users.
 
 Example output:
 ```
