@@ -40,6 +40,27 @@ Track and analyze GitHub pull request contributions across your organization. Si
 
 ## Usage
 
+### List Organization Members
+
+View all members in an organization:
+```
+python -m src.cli list-users -o organization
+```
+
+Example output:
+```
+                    Organization Members in organization                    
+╭──────────┬────────────────────────────────┬──────────────╮
+│ Username │ Profile URL                    │ Type         │
+├──────────┼────────────────────────────────┼──────────────┤
+│ dev1     │ https://github.com/dev1        │ User         │
+│ dev2     │ https://github.com/dev2        │ User         │
+│ bot-user │ https://github.com/bot-user    │ Bot          │
+╰──────────┴────────────────────────────────┴──────────────╯
+
+Total members: 3
+```
+
 ### Compare Developers
 
 Compare specific developers:

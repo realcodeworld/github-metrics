@@ -94,6 +94,55 @@ def analyze(
         console.print("[bold red]Error:[/] " + str(e), style="red")
         raise typer.Exit(1)
 
+
+@app.command()
+def list_users(
+    org: str = typer.Option(..., "--org", "-o", help="GitHub organization name"),
+    token: Optional[str] = typer.Option(None, "--token", "-t", help="GitHub API token", envvar="GITHUB_TOKEN"),
+):
+    """List all users in an organization"""
+    try:
+        metrics = GitHubMetrics(token)
+        
+        # Get all org members
+        members = metrics.client.get_org_members(org)
+        
+        if not members:
+            console.print(f"[bold red]No members found in {org}[/]")
+            raise typer.Exit(1)
+        
+        # Create table
+        table = Table(
+            title=f"Organization Members in {org}",
+            box=box.ROUNDED,
+            show_header=True,
+            header_style="bold cyan",
+            show_lines=True
+        )
+        
+        # Add columns
+        table.add_column("Username", style="bold")
+        table.add_column("Profile URL", style="blue")
+        table.add_column("Type", style="yellow")
+        
+        # Add rows
+        for member in sorted(members, key=lambda x: x['login'].lower()):
+            table.add_row(
+                member['login'],
+                member['url'],
+                member['type']
+            )
+        
+        # Print the table
+        console.print()
+        console.print(table)
+        console.print(f"\nTotal members: {len(members)}")
+        console.print()
+        
+    except Exception as e:
+        console.print("[bold red]Error:[/] " + str(e), style="red")
+        raise typer.Exit(1)
+
 def main():
     app()
 
